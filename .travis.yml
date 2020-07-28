@@ -1,0 +1,6 @@
+language: node_js
+node_js:
+  - 12
+script:
+  - eslint 'src/**'
+  - npx jest --clearCache  && npm run test:coveralls
