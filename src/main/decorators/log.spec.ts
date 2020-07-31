@@ -6,9 +6,7 @@ const makeController = (): Controller => {
     async handle (httpRequest: HttpRequest): Promise<HttpResponse> {
       const httpResponse: HttpResponse = {
         statusCode: 200,
-        body: {
-          name: 'any_name'
-        }
+        body: httpRequest.body
       }
       return await new Promise(resolve => resolve(httpResponse))
     }
@@ -17,11 +15,11 @@ const makeController = (): Controller => {
   return new ControllerStub()
 }
 
-interface SutTypes {  
+interface SutTypes {
   sut: LogControllerDecorator
   controllerStub: Controller
 }
-const makeSut = (): SutTypes => {  
+const makeSut = (): SutTypes => {
   const controllerStub = makeController()
   const sut = new LogControllerDecorator(controllerStub)
   return {
@@ -44,5 +42,22 @@ describe('LogController Decorator', () => {
     }
     await sut.handle(httpRequest)
     expect(handleSpy).toHaveBeenCalledWith(httpRequest)
+  })
+
+  test('Should return the same result of the controller', async () => {
+    const { sut } = makeSut()
+    const httpRequest = {
+      body: {
+        name: 'any_name',
+        email: 'any_email@mail.com',
+        password: 'any_password',
+        passwordConfirmation: 'any_password'
+      }
+    }
+    const httpResponse = await sut.handle(httpRequest)
+    expect(httpResponse).toEqual({
+      statusCode: 200,
+      body: httpRequest.body
+    })
   })
 })
