@@ -1,6 +1,6 @@
 import { AuthenticationModel } from './../../../domain/usecases/authentication';
 import { DbAuthentication } from './db-authentication';
-import { LoadAccountByEmailRepository } from './../../protocols/LoadAccountByEmailRepository';
+import { LoadAccountByEmailRepository } from './../../protocols/load-account-by-email-repository';
 import { AccountModel } from './../../../domain/models/account';
 
 const makeFaceAccount = (): AccountModel => ({
