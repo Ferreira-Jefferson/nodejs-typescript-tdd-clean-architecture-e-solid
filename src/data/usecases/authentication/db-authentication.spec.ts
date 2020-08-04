@@ -1,10 +1,12 @@
-import { AuthenticationModel } from './../../../domain/usecases/authentication'
 import { DbAuthentication } from './db-authentication'
-import { LoadAccountByEmailRepository } from './../../protocols/db/load-account-by-email-repository'
-import { AccountModel } from './../../../domain/models/account'
-import { HashComparer } from './../../protocols/criptography/hash-compare'
-import { TokenGenerator } from './../../protocols/criptography/token-generator'
-import { UpdateAccessTokenRepository } from './../../protocols/db/db-access-token-repository'
+import {
+  AccountModel,
+  AuthenticationModel,
+  HashComparer,
+  TokenGenerator,
+  LoadAccountByEmailRepository,
+  UpdateAccessTokenRepository
+} from './db-authentication-protocols'
 
 const makeFaceAccount = (): AccountModel => ({
   id: 'any_id',
