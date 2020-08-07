@@ -1,8 +1,13 @@
 import { Express, Router } from 'express'
+import { readdirSync } from 'fs'
 
 export default (app: Express): void => {
   const router = Router()
   app.use('/api', router)
 
-  require('../routes/login-routes').default(router)
+  readdirSync(`${__dirname}/../routes`).filter(async file => {
+    if (!file.includes('.test.')) {
+      (await import(`../routes/${file}`)).default(router)
+    }
+  })
 }
