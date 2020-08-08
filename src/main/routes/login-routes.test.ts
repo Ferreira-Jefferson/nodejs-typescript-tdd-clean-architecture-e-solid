@@ -2,7 +2,7 @@ import request from 'supertest'
 import app from '../config/app'
 import { MongoHelper } from '../../infra/db/mongodb/helpers/mongo-helper'
 import { Collection } from 'mongodb'
-import { BcryptAdapter } from './../../infra/criptography/bcrypt-adapter/bcrypt-adapter'
+import { BcryptAdapter } from '../../infra/criptography/bcrypt-adapter/bcrypt-adapter'
 
 describe('Login Routes', () => {
   let accountCollection: Collection
