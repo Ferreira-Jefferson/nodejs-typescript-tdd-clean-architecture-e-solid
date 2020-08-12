@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.com/Ferreira-Jefferson/NodeJs-Typescript-TDD-Clean-Architecture-e-SOLID.svg?branch=master)](https://travis-ci.com/github/Ferreira-Jefferson/NodeJs-Typescript-TDD-Clean-Architecture-e-SOLID)
 [![Coverage Status](https://coveralls.io/repos/github/Ferreira-Jefferson/NodeJs-Typescript-TDD-Clean-Architecture-e-SOLID/badge.svg)](https://coveralls.io/github/Ferreira-Jefferson/NodeJs-Typescript-TDD-Clean-Architecture-e-SOLID)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com)
-[![Open Source](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://opensource.org/)
+![GitHub tag](https://img.shields.io/github/v/tag/Ferreira-Jefferson/NodeJs-Typescript-TDD-Clean-Architecture-e-SOLID)
 
 ## **NodeJs, Typescript, TDD , Clean Architecture e SOLID**
 
