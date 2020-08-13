@@ -1,5 +1,5 @@
 import { LoadSurveysController } from './load-surveys-controller'
-import { SurveyModel, LoadSurveys } from './load-surveys-protocols-controller'
+import { SurveyModel, LoadSurveys } from './load-surveys-controller-protocols'
 import MockDate from 'mockdate'
 import { ok, serverError } from '../../../helpers/http/http-helper'
 
