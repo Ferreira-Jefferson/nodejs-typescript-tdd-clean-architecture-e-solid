@@ -3,7 +3,7 @@ import { SurveyMongoRepository } from './survey-mongo-repository'
 import { AddSurveyModel } from './../../../../domain/usecases/add-survey'
 import { Collection } from 'mongodb'
 
-const makeFakeSurveydata = (): AddSurveyModel => ({
+const makeFakeSurveyData = (): AddSurveyModel => ({
   question: 'any_question',
   answers: [
     {
@@ -40,7 +40,7 @@ describe('Account Mongo Repository', () => {
   describe('add()', () => {
     test('Should add a survey on success', async () => {
       const sut = makeSut()
-      await sut.add(makeFakeSurveydata())
+      await sut.add(makeFakeSurveyData())
       const survey = await surveyCollection.findOne({ question: 'any_question' })
       expect(survey).toBeTruthy()
     })
@@ -49,7 +49,7 @@ describe('Account Mongo Repository', () => {
   describe('loadAll()', () => {
     test('Should load all surveys on success', async () => {
       const sut = makeSut()
-      await sut.add(makeFakeSurveydata())
+      await sut.add(makeFakeSurveyData())
       const surveys = await sut.loadAll()
       expect(surveys.length).toBe(1)
       expect(surveys[0].question).toBe('any_question')
