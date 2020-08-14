@@ -2,8 +2,8 @@ import { adaptMiddleware } from './../../adapters/express-middleware-adapter'
 import { makeAuthMiddleware } from './auth-middleware-factory'
 import { auth } from './auth-factory'
 
-jest.mock('./../adapters/express-middleware-adapter')
-jest.mock('./../factories/middlewares/auth-middleware-factory')
+jest.mock('./../../adapters/express-middleware-adapter')
+jest.mock('./auth-middleware-factory')
 
 describe('Auth Middleware', () => {
   test('Should call adaptMiddleware with makeAuthMiddleware', () => {
