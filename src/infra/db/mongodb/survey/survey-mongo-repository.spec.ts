@@ -52,6 +52,7 @@ describe('Account Mongo Repository', () => {
       await sut.add(makeFakeSurveyData())
       const surveys = await sut.loadAll()
       expect(surveys.length).toBe(1)
+      expect(surveys[0].id).toBeTruthy()
       expect(surveys[0].question).toBe('any_question')
       expect(surveys[0].answers[1].answer).toBe('other_answer')
     })
@@ -71,6 +72,7 @@ describe('Account Mongo Repository', () => {
       const id = firstSurvey._id
       const survey = await sut.loadById(id)
       expect(survey).toBeTruthy()
+      expect(survey.id).toBeTruthy()
     })
   })
 })
