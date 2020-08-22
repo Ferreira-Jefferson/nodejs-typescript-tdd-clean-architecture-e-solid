@@ -25,10 +25,10 @@ describe('Login Routes', () => {
       await request(app)
         .post('/api/signup')
         .send({
-          name: 'valid_name',
-          email: 'valid_email@mail.com',
-          password: 'valid_password',
-          passwordConfirmation: 'valid_password'
+          name: 'any_name',
+          email: 'any_email@mail.com',
+          password: 'any_password',
+          passwordConfirmation: 'any_password'
         })
         .expect(200)
     })
@@ -37,17 +37,17 @@ describe('Login Routes', () => {
   describe('POST /login Routes', () => {
     test('Should return 200 on login', async () => {
       const bcryptAdapter = new BcryptAdapter(12)
-      const password = await bcryptAdapter.hash('valid_password')
+      const password = await bcryptAdapter.hash('any_password')
       await accountCollection.insertOne({
-        name: 'valid_name',
-        email: 'valid_email@mail.com',
+        name: 'any_name',
+        email: 'any_email@mail.com',
         password
       })
       await request(app)
         .post('/api/login')
         .send({
-          email: 'valid_email@mail.com',
-          password: 'valid_password'
+          email: 'any_email@mail.com',
+          password: 'any_password'
         })
         .expect(200)
     })
