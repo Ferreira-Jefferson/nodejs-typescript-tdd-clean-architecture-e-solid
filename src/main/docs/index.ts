@@ -1,8 +1,6 @@
-import { loginPath } from './paths/login-path'
+import { loginPath } from './paths'
 import { badRequest, serverError, unauthorized, notfound } from './components/'
-import { accountSchema } from './schemas/account-schema'
-import { loginParamsSchema } from './schemas/login-params-schema'
-import { errorSchema } from './schemas/error-schema'
+import { accountSchema, loginParamsSchema, errorSchema } from './schemas'
 
 export default {
   openapi: '3.0.0',
