@@ -7,7 +7,11 @@ export default {
   info: {
     title: 'API Clean Node',
     description: 'API do curso do Mango para realizar enquestes entre programadores',
-    version: '1.0.0'
+    version: '1.0.0',
+    license: {
+      name: 'GPL-3.0-or-later',
+      url: 'https://spdx.org/licenses/GPL-3.0-or-later.html'
+    }
   },
   servers: [{
     url: '/api'

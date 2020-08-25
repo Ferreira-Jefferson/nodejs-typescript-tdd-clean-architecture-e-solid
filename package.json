@@ -1,7 +1,8 @@
 {
   "name": "NodeJs-Typescript-TDD-Clean-Architecture-e-SOLID",
   "version": "1.6.1",
-  "description": "",
+  "description": "NodeJs Rest API using TDD, Clean Architecture and Typescript",
+  "license": "GPL-3.0-or-later",
   "main": "index.js",
   "scripts": {
     "start": "node dist/main/server.js",
