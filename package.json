@@ -1,7 +1,8 @@
 {
   "name": "NodeJs-Typescript-TDD-Clean-Architecture-e-SOLID",
-  "version": "1.6.1",
-  "description": "NodeJs Rest API using TDD, Clean Architecture and Typescript",
+  "version": "1.7.0",
+  "description": "NodeJs Rest API using TDD, Clean Architecture and Typescript",  
+  "author": "Jefferson Ferreira",
   "license": "GPL-3.0-or-later",
   "main": "index.js",
   "scripts": {
@@ -20,8 +21,6 @@
     "test:coveralls": "npm run test:ci && coveralls < coverage/lcov.info"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "@shelf/jest-mongodb": "^1.2.2",
     "@types/bcrypt": "^3.0.0",
