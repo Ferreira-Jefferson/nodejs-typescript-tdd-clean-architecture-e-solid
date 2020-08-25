@@ -24,6 +24,9 @@ export const loginPath = {
       },
       400: {
         $ref: '#/components/badRequest'
+      },
+      500: {
+        $ref: '#/components/serverError'
       }
     }
   }
