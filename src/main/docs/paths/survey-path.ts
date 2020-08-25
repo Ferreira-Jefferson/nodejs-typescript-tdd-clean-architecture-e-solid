@@ -7,7 +7,7 @@ export const surveyPath = {
     summary: 'API para listar todas as enquetes',
     responses: {
       200: {
-        description: 'Successo',
+        description: 'Sucesso',
         content: {
           'application/json': {
             schema: {
@@ -44,7 +44,7 @@ export const surveyPath = {
     },
     responses: {
       204: {
-        description: 'Successo'
+        description: 'Sucesso'
       },
       403: {
         $ref: '#/components/forbidden'
