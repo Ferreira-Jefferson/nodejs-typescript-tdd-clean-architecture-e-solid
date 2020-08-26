@@ -32,7 +32,7 @@ describe('LoadSurveys Controller', () => {
     const { sut, loadSurveysStub } = makeSut()
     const loadSpy = jest.spyOn(loadSurveysStub, 'load')
     await sut.handle({})
-    expect(loadSpy).toHaveBeenCalled()
+    expect(loadSpy).toBeCalled()
   })
 
   test('Should return 204 if LoadSurveys returns empty', async () => {
