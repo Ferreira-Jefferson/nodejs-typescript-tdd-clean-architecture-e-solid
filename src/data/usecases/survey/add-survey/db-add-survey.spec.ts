@@ -32,7 +32,7 @@ describe('DbAddSurvey Usecase', () => {
     const addSpy = jest.spyOn(addSurveyRepositoryStub, 'add')
     const surveyData = fakeAddSurveyParams()
     await sut.add(surveyData)
-    expect(addSpy).toHaveBeenCalledWith(surveyData)
+    expect(addSpy).toBeCalledWith(surveyData)
   })
 
   test('Should throw if AddSurveyRepository throws', async () => {

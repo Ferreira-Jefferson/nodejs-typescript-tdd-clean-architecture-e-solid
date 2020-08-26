@@ -21,7 +21,7 @@ describe('Jwt Adapter', () => {
       const sut = makeSut()
       const signSpy = jest.spyOn(jwt, 'sign')
       await sut.encrypt('any_id')
-      expect(signSpy).toHaveBeenCalledWith({ id: 'any_id' }, 'secret_key')
+      expect(signSpy).toBeCalledWith({ id: 'any_id' }, 'secret_key')
     })
 
     test('Should return a token on sign success', async () => {
@@ -45,7 +45,7 @@ describe('Jwt Adapter', () => {
       const sut = makeSut()
       const verifySpy = jest.spyOn(jwt, 'verify')
       await sut.decrypt('any_token')
-      expect(verifySpy).toHaveBeenCalledWith('any_token', 'secret_key')
+      expect(verifySpy).toBeCalledWith('any_token', 'secret_key')
     })
 
     test('Should return a value on verify success', async () => {

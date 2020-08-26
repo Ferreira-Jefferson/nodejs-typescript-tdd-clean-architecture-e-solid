@@ -23,6 +23,6 @@ describe('LoginValidation Factory', () => {
     }
     validations.push(new EmailValidation('email', makeEmailValidator()))
 
-    expect(ValidationComposite).toHaveBeenCalledWith(validations)
+    expect(ValidationComposite).toBeCalledWith(validations)
   })
 })

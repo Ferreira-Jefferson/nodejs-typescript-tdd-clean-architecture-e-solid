@@ -24,6 +24,6 @@ describe('SignUpValidation Factory', () => {
     validations.push(new CompareFieldsValidation('password', 'passwordConfirmation'))
     validations.push(new EmailValidation('email', makeEmailValidator()))
 
-    expect(ValidationComposite).toHaveBeenCalledWith(validations)
+    expect(ValidationComposite).toBeCalledWith(validations)
   })
 })

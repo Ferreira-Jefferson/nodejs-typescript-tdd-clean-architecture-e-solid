@@ -34,7 +34,7 @@ describe('DbAddAccount Usecase', () => {
       password: 'any_password'
     }
     await sut.add(accountData)
-    expect(hashSpy).toHaveBeenCalledWith(accountData.password)
+    expect(hashSpy).toBeCalledWith(accountData.password)
   })
 
   test('Should throw if Hasher throws', async () => {
@@ -48,7 +48,7 @@ describe('DbAddAccount Usecase', () => {
     const { sut, addAccountRepositoryStub } = makeSut()
     const addSpy = jest.spyOn(addAccountRepositoryStub, 'add')
     await sut.add(fakeAddAccountParams())
-    expect(addSpy).toHaveBeenCalledWith({
+    expect(addSpy).toBeCalledWith({
       name: 'any_name',
       email: 'any_email@mail.com',
       password: 'any_password'
@@ -80,6 +80,6 @@ describe('DbAddAccount Usecase', () => {
     const { sut, loadAccountByEmailRepositoryStub } = makeSut()
     const loadSpy = jest.spyOn(loadAccountByEmailRepositoryStub, 'loadByEmail')
     await sut.add(fakeAddAccountParams())
-    expect(loadSpy).toHaveBeenCalledWith('any_email@mail.com')
+    expect(loadSpy).toBeCalledWith('any_email@mail.com')
   })
 })

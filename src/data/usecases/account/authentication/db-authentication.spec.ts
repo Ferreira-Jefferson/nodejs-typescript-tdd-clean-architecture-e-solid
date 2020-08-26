@@ -36,7 +36,7 @@ describe('DbAutentication UseCase', () => {
     const { sut, loadAccountByEmailRepositoryStub } = makeSut()
     const loadSpy = jest.spyOn(loadAccountByEmailRepositoryStub, 'loadByEmail')
     await sut.auth(fakeAuthenticationParams())
-    expect(loadSpy).toHaveBeenCalledWith('any_email@mail.com')
+    expect(loadSpy).toBeCalledWith('any_email@mail.com')
   })
 
   test('Should throw if LoadAccountByEmailRepository throws', async () => {
@@ -57,7 +57,7 @@ describe('DbAutentication UseCase', () => {
     const { sut, hashComparerStub } = makeSut()
     const compareSpy = jest.spyOn(hashComparerStub, 'compare')
     await sut.auth(fakeAuthenticationParams())
-    await expect(compareSpy).toHaveBeenCalledWith('any_password', 'any_password')
+    await expect(compareSpy).toBeCalledWith('any_password', 'any_password')
   })
 
   test('Should throw if HashComparer throws', async () => {
@@ -78,7 +78,7 @@ describe('DbAutentication UseCase', () => {
     const { sut, encrypterStub } = makeSut()
     const ecryptSpy = jest.spyOn(encrypterStub, 'encrypt')
     await sut.auth(fakeAuthenticationParams())
-    await expect(ecryptSpy).toHaveBeenCalledWith('any_id')
+    await expect(ecryptSpy).toBeCalledWith('any_id')
   })
 
   test('Should throw if Encrypter throws', async () => {
@@ -98,7 +98,7 @@ describe('DbAutentication UseCase', () => {
     const { sut, updateAccessTokenRepositoryStub } = makeSut()
     const updateSpy = jest.spyOn(updateAccessTokenRepositoryStub, 'updateAccessToken')
     await sut.auth(fakeAuthenticationParams())
-    await expect(updateSpy).toHaveBeenCalledWith('any_id', 'any_token')
+    await expect(updateSpy).toBeCalledWith('any_id', 'any_token')
   })
 
   test('Should throw if UpdateAccessTokenRepository throws', async () => {

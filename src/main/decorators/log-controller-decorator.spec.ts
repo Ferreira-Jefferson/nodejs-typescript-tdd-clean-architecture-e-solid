@@ -51,7 +51,7 @@ describe('LogController Decorator', () => {
     const { sut, controllerStub } = makeSut()
     const handleSpy = jest.spyOn(controllerStub, 'handle')
     await sut.handle(makeFakeRequest())
-    expect(handleSpy).toHaveBeenCalledWith(makeFakeRequest())
+    expect(handleSpy).toBeCalledWith(makeFakeRequest())
   })
 
   test('Should return the same result of the controller', async () => {
@@ -68,6 +68,6 @@ describe('LogController Decorator', () => {
     Promise(resolve => resolve(makeFakeServerError('any_stack')))
     )
     await sut.handle(makeFakeRequest())
-    expect(logSpy).toHaveBeenCalledWith('any_stack')
+    expect(logSpy).toBeCalledWith('any_stack')
   })
 })

@@ -46,7 +46,7 @@ describe('SaveSurveyResult Controller', () => {
     const { sut, loadSurveyByIdStub } = makeSut()
     const loadByIdSpy = jest.spyOn(loadSurveyByIdStub, 'loadById')
     await sut.handle(makeFakeRequest())
-    expect(loadByIdSpy).toHaveBeenCalledWith('any_survey_id')
+    expect(loadByIdSpy).toBeCalledWith('any_survey_id')
   })
 
   test('Should return 403 if LoadSurveyById returns null', async () => {
@@ -80,7 +80,7 @@ describe('SaveSurveyResult Controller', () => {
     const { sut, saveSurveyResultStub } = makeSut()
     const saveSpy = jest.spyOn(saveSurveyResultStub, 'save')
     await sut.handle(makeFakeRequest())
-    expect(saveSpy).toHaveBeenCalledWith({
+    expect(saveSpy).toBeCalledWith({
       surveyId: 'any_survey_id',
       accountId: 'any_account_id',
       answer: 'any_answer',

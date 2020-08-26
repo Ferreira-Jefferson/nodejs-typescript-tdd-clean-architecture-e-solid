@@ -33,7 +33,7 @@ describe('Login Controller', () => {
     const { sut, authenticationStub } = makeSut()
     const authSpy = jest.spyOn(authenticationStub, 'auth')
     await sut.handle(makeFakeRequest())
-    expect(authSpy).toHaveBeenCalledWith({
+    expect(authSpy).toBeCalledWith({
       email: 'any_email@outlook.com',
       password: 'any_password'
     })
@@ -64,7 +64,7 @@ describe('Login Controller', () => {
     const addSpy = jest.spyOn(validationStub, 'validate')
     const httpRequest = makeFakeRequest()
     await sut.handle(httpRequest)
-    expect(addSpy).toHaveBeenCalledWith(httpRequest.body)
+    expect(addSpy).toBeCalledWith(httpRequest.body)
   })
 
   test('Should return 400 if Validation returns an error', async () => {

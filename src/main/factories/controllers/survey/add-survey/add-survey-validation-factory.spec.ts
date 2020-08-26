@@ -11,6 +11,6 @@ describe('AddSurveyValidation Factory', () => {
     for (const field of ['question', 'answers']) {
       validations.push(new RequiredFieldValidation(field))
     }
-    expect(ValidationComposite).toHaveBeenCalledWith(validations)
+    expect(ValidationComposite).toBeCalledWith(validations)
   })
 })

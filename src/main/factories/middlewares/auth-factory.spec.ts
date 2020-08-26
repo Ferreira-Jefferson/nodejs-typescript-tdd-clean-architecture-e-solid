@@ -8,12 +8,12 @@ jest.mock('./auth-middleware-factory')
 describe('Auth Middleware', () => {
   test('Should call adaptMiddleware with makeAuthMiddleware', () => {
     auth()
-    expect(adaptMiddleware).toHaveBeenCalledWith(makeAuthMiddleware())
+    expect(adaptMiddleware).toBeCalledWith(makeAuthMiddleware())
   })
 
   test('Should call makeAuthMiddleware with admin', () => {
     auth('admin')
-    expect(makeAuthMiddleware).toHaveBeenCalledWith('admin')
+    expect(makeAuthMiddleware).toBeCalledWith('admin')
   })
 
   test('Should auth return falsy', () => {
