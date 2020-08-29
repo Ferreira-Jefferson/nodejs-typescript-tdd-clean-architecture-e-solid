@@ -1,6 +1,6 @@
 {
   "name": "NodeJs-Typescript-TDD-Clean-Architecture-e-SOLID",
-  "version": "1.7.0",
+  "version": "2.0.0",
   "description": "NodeJs Rest API using TDD, Clean Architecture and Typescript",  
   "author": "Jefferson Ferreira",
   "license": "GPL-3.0-or-later",
