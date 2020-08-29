@@ -6,7 +6,7 @@ import { forbidden, serverError, ok } from '@/presentation/helpers/http/http-hel
 import { fakeSurveyResultModel } from '@/domain/test'
 import MockDate from 'mockdate'
 
-const makeFakeRequest = (): HttpRequest => ({
+const fakeRequest = (): HttpRequest => ({
   params: {
     surveyId: 'any_id'
   }
@@ -41,41 +41,41 @@ describe('LoadSurveyResult Controller', () => {
   test('Should call LoadSurveyById with correct value', async () => {
     const { sut, loadSurveyByIdStub } = makeSut()
     const loadByIdSpy = jest.spyOn(loadSurveyByIdStub, 'loadById')
-    await sut.handle(makeFakeRequest())
+    await sut.handle(fakeRequest())
     expect(loadByIdSpy).toBeCalledWith('any_id')
   })
 
   test('Should return 403 if LoadSurveyById returns null', async () => {
     const { sut, loadSurveyByIdStub } = makeSut()
     jest.spyOn(loadSurveyByIdStub, 'loadById').mockResolvedValueOnce(null)
-    const httpResponse = await sut.handle(makeFakeRequest())
+    const httpResponse = await sut.handle(fakeRequest())
     expect(httpResponse).toEqual(forbidden(new InvalidParamError('surveyId')))
   })
 
   test('Should return 500 if LoadSurveyById throws', async () => {
     const { sut, loadSurveyByIdStub } = makeSut()
     jest.spyOn(loadSurveyByIdStub, 'loadById').mockRejectedValueOnce(new Error())
-    const httpResponse = await sut.handle(makeFakeRequest())
+    const httpResponse = await sut.handle(fakeRequest())
     expect(httpResponse).toEqual(serverError(new Error()))
   })
 
   test('Should call LoadSurveyResult with correct value', async () => {
     const { sut, loadSurveyResultStub } = makeSut()
     const loadSpy = jest.spyOn(loadSurveyResultStub, 'load')
-    await sut.handle(makeFakeRequest())
+    await sut.handle(fakeRequest())
     expect(loadSpy).toBeCalledWith('any_id')
   })
 
   test('Should return 500 if LoadSurveyResult throws', async () => {
     const { sut, loadSurveyResultStub } = makeSut()
     jest.spyOn(loadSurveyResultStub, 'load').mockRejectedValueOnce(new Error())
-    const httpResponse = await sut.handle(makeFakeRequest())
+    const httpResponse = await sut.handle(fakeRequest())
     expect(httpResponse).toEqual(serverError(new Error()))
   })
 
   test('Should return 200 on success', async () => {
     const { sut } = makeSut()
-    const httpResponse = await sut.handle(makeFakeRequest())
+    const httpResponse = await sut.handle(fakeRequest())
     expect(httpResponse).toEqual(ok(fakeSurveyResultModel()))
   })
 })

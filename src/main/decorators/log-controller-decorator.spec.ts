@@ -5,7 +5,7 @@ import { LogControllerDecorator } from './log-controller-decorator'
 import { fakeAccountModel } from '@/domain/test'
 import { stubLogErrorRepository } from '@/data/test'
 
-const makeFakeRequest = (): HttpRequest => ({
+const fakeRequest = (): HttpRequest => ({
   body: {
     name: 'any_name',
     email: 'any_email@mail.com',
@@ -50,14 +50,14 @@ describe('LogController Decorator', () => {
   test('Should call controller handle', async () => {
     const { sut, controllerStub } = makeSut()
     const handleSpy = jest.spyOn(controllerStub, 'handle')
-    await sut.handle(makeFakeRequest())
-    expect(handleSpy).toBeCalledWith(makeFakeRequest())
+    await sut.handle(fakeRequest())
+    expect(handleSpy).toBeCalledWith(fakeRequest())
   })
 
   test('Should return the same result of the controller', async () => {
     const { sut } = makeSut()
 
-    const httpResponse = await sut.handle(makeFakeRequest())
+    const httpResponse = await sut.handle(fakeRequest())
     expect(httpResponse).toEqual(ok(fakeAccountModel()))
   })
 
@@ -67,7 +67,7 @@ describe('LogController Decorator', () => {
     jest.spyOn(controllerStub, 'handle').mockReturnValueOnce(new
     Promise(resolve => resolve(makeFakeServerError('any_stack')))
     )
-    await sut.handle(makeFakeRequest())
+    await sut.handle(fakeRequest())
     expect(logSpy).toBeCalledWith('any_stack')
   })
 })
